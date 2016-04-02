@@ -18,3 +18,5 @@ dependencies {
 test.doFirst {
     jvmArgs "-javaagent:${configurations.agent.singleFile}"
 }
+
+test.testLogging.showStandardStreams = true
