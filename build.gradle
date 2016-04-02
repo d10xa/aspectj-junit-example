@@ -1,0 +1,20 @@
+apply plugin: "java"
+
+repositories {
+    jcenter()
+}
+
+configurations {
+    agent
+}
+
+dependencies {
+    agent "org.aspectj:aspectjweaver:${aspectjVersion}"
+    compile "org.aspectj:aspectjrt:${aspectjVersion}"
+
+    compile "junit:junit:4.12"
+}
+
+test.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
